@@ -24,7 +24,7 @@ namespace TicTacTieCodeRetreatPart3
         public void Player_MakesOneMove_HasntWonYet()
         {
             var player = new Player();
-            player.MakeMove();
+            player.MakeMove(1);
 
             Assert.That(player.HasWon(), Is.False);
         }
@@ -36,6 +36,17 @@ namespace TicTacTieCodeRetreatPart3
             player.MakeMove(1);
             player.MakeMove(2);
             player.MakeMove(3);
+
+            Assert.That(player.HasWon(), Is.True);
+        }
+
+        [Test]
+        public void Player_MakesThreeMoves_HasntWonYet()
+        {
+            var player = new Player();
+            player.MakeMove(1);
+            player.MakeMove(2);
+            player.MakeMove(4);
 
             Assert.That(player.HasWon(), Is.False);
         }
