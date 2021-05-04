@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace TicTacTieCodeRetreatPart3
 {
@@ -27,6 +28,17 @@ namespace TicTacTieCodeRetreatPart3
 
             Assert.That(player.HasWon(), Is.False);
         }
+
+        [Test]
+        public void Player_MakesThreeMoves_Wins()
+        {
+            var player = new Player();
+            player.MakeMove(1);
+            player.MakeMove(2);
+            player.MakeMove(3);
+
+            Assert.That(player.HasWon(), Is.False);
+        }
     }
 
     public class Game
@@ -40,14 +52,18 @@ namespace TicTacTieCodeRetreatPart3
 
     public class Player
     {
-        public void MakeMove()
-        {
+        private List<int> _moves = new List<int>();
 
+        public void MakeMove(int index)
+        {
+            _moves.Add(index);
         }
 
         public bool HasWon()
         {
-            return false;
+            return _moves.Contains(1) &&
+            _moves.Contains(2) &&
+            _moves.Contains(3);
         }
     }
 }
