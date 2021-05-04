@@ -18,6 +18,15 @@ namespace TicTacTieCodeRetreatPart3
 
             Assert.That(player.HasWon(), Is.False);
         }
+
+        [Test]
+        public void Player_MakesOneMove_HasntWonYet()
+        {
+            var player = new Player();
+            player.MakeMove();
+
+            Assert.That(player.HasWon(), Is.False);
+        }
     }
 
     public class Game
@@ -31,6 +40,11 @@ namespace TicTacTieCodeRetreatPart3
 
     public class Player
     {
+        public void MakeMove()
+        {
+
+        }
+
         public bool HasWon()
         {
             return false;
