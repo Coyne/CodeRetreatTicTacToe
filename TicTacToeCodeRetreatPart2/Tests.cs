@@ -104,11 +104,18 @@ namespace TicTacToeCodeRetreatPart2
 
         public override bool Equals(object obj)
         {
-            if (this.Row == obj.Row && this.Column == obj.Column)
+            var spot = obj as Spot;
+            if (spot == null) return false;
+
+            if (Row == spot.Row && Column == spot.Column)
             {
                 return true;
             }
             return false;
+        }
+        public override int GetHashCode()
+        {
+            return (Row << 2) ^ Column;
         }
 
         public bool Available => true;
