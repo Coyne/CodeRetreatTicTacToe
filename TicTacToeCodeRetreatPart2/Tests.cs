@@ -75,7 +75,6 @@ namespace TicTacToeCodeRetreatPart2
                 new Spot(2,1), new Spot(2,2), new Spot(2,3),
                 new Spot(3,1), new Spot(3,2), new Spot(3,3)
             };
-       
         }
     }
 
