@@ -11,6 +11,13 @@ namespace TicTacTieCodeRetreatPart3
 
             Assert.That(game.IsRunning, Is.True);
         }
+        [Test]
+        public void Player_NoMoves_HasntWonYet()
+        {
+            var player = new Player();
+
+            Assert.That(player.HasWon(), Is.False);
+        }
     }
 
     public class Game
@@ -20,5 +27,13 @@ namespace TicTacTieCodeRetreatPart3
             IsRunning = true;
         }
         public bool IsRunning { get; set; }
+    }
+
+    public class Player
+    {
+        public bool HasWon()
+        {
+            return false;
+        }
     }
 }
