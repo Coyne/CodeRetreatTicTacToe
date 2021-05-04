@@ -62,6 +62,18 @@ namespace TicTacTieCodeRetreatPart3
 
             Assert.That(player.HasWon(), Is.True);
         }
+
+        [Test]
+        public void Player_MakesThreeMoves_Diagonally_Wins()
+        {
+
+            var player = new Player();
+            player.MakeMove(1);
+            player.MakeMove(5);
+            player.MakeMove(9);
+
+            Assert.That(player.HasWon(), Is.True);
+        }
     }
 
     public class Game
@@ -84,7 +96,7 @@ namespace TicTacTieCodeRetreatPart3
 
         public bool HasWon()
         {
-            return (HasHorizontalLine()) || (HasVerticalLine());
+            return (HasHorizontalLine()) || (HasVerticalLine() || HasDiagonalLine());
         }
 
         private bool HasVerticalLine()
@@ -99,6 +111,13 @@ namespace TicTacTieCodeRetreatPart3
             return _moves.Contains(1) &&
                         _moves.Contains(2) &&
                         _moves.Contains(3);
+        }
+
+        private bool HasDiagonalLine()
+        {
+            return _moves.Contains(1) &&
+                        _moves.Contains(5) &&
+                        _moves.Contains(9);
         }
     }
 }
