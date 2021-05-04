@@ -50,6 +50,18 @@ namespace TicTacTieCodeRetreatPart3
 
             Assert.That(player.HasWon(), Is.False);
         }
+
+        [Test]
+        public void Player_MakesThreeMoves_Vertically_Wins()
+        {
+
+            var player = new Player();
+            player.MakeMove(1);
+            player.MakeMove(4);
+            player.MakeMove(7);
+
+            Assert.That(player.HasWon(), Is.True);
+        }
     }
 
     public class Game
@@ -72,9 +84,13 @@ namespace TicTacTieCodeRetreatPart3
 
         public bool HasWon()
         {
-            return _moves.Contains(1) &&
+
+
+            return (_moves.Contains(1) &&
             _moves.Contains(2) &&
-            _moves.Contains(3);
+            _moves.Contains(3)) || (_moves.Contains(1) &&
+            _moves.Contains(4) &&
+            _moves.Contains(7));
         }
     }
 }
