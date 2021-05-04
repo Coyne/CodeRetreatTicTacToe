@@ -4,15 +4,21 @@ namespace TicTacTieCodeRetreatPart3
 {
     public class Tests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
         [Test]
-        public void Test1()
+        public void Game_NobodyWon_StillRunning()
         {
-            Assert.Pass();
+            var game = new Game();
+
+            Assert.That(game.IsRunning, Is.True);
         }
+    }
+
+    public class Game
+    {
+        public Game()
+        {
+            IsRunning = true;
+        }
+        public bool IsRunning { get; set; }
     }
 }
