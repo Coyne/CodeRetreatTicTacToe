@@ -84,9 +84,14 @@ namespace TicTacTieCodeRetreatPart3
 
         public bool HasWon()
         {
-            return (HasHorizontalLine()) || (_moves.Contains(1) &&
-            _moves.Contains(4) &&
-            _moves.Contains(7));
+            return (HasHorizontalLine()) || (HasVerticalLine());
+        }
+
+        private bool HasVerticalLine()
+        {
+            return _moves.Contains(1) &&
+                        _moves.Contains(4) &&
+                        _moves.Contains(7);
         }
 
         private bool HasHorizontalLine()
