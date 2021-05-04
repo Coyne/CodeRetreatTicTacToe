@@ -30,7 +30,7 @@ namespace TicTacTieCodeRetreatPart3
         }
 
         [Test]
-        public void Player_MakesThreeMoves_Wins()
+        public void Player_MakesThreeMoves_Horizontally_Wins()
         {
             var player = new Player();
             player.MakeMove(1);
@@ -84,8 +84,6 @@ namespace TicTacTieCodeRetreatPart3
 
         public bool HasWon()
         {
-
-
             return (_moves.Contains(1) &&
             _moves.Contains(2) &&
             _moves.Contains(3)) || (_moves.Contains(1) &&
